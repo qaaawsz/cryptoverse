@@ -1,6 +1,6 @@
-import React, {useEffect, useState} from 'react'
+import React, {useState} from 'react'
 import HTMLReactParser from 'html-react-parser'
-import {useLocation, useNavigate, useParams, useSearchParams} from 'react-router-dom'
+import {useLocation} from 'react-router-dom'
 import {useGetCryptosDetailsQuery, useGetCryptoHistoryQuery} from '../api/cryptoApiHandler'
 import millify from 'millify'
 import {Col, Row, Typography, Select} from 'antd'
@@ -91,12 +91,12 @@ const CryptoDetails = () => {
                 </Typography.Title>
                 <p>{cryptoDetails.name} live price in US Dollar (USD). View value statistics, market cap and supply.</p>
             </Col>
-            <Select value={timeperiod} className="select-timeperiod" placeholder="Select Timeperiod"
-                    onChange={(value) => setTimeperiod(value)}>
-                {time.map((date) => <Select.Option key={date}>{date}</Select.Option>)}
-            </Select>
-            <LineChart coinHistory={coinHistory} currentPrice={millify(cryptoDetails?.price)}
-                       coinName={cryptoDetails?.name}/>
+            {/*<Select value={timeperiod} className="select-timeperiod" placeholder="Select Timeperiod"*/}
+            {/*        onChange={(value) => setTimeperiod(value)}>*/}
+            {/*    {time.map((date) => <Select.Option key={date}>{date}</Select.Option>)}*/}
+            {/*</Select>*/}
+            {/*<LineChart coinHistory={coinHistory} currentPrice={millify(cryptoDetails?.price)}*/}
+            {/*           coinName={cryptoDetails?.name}/>*/}
             <Col className="stats-container">
                 <Col className="coin-value-statistics">
                     <Col className="coin-value-statistics-heading">

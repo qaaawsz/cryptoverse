@@ -28,13 +28,16 @@ const Cryptocurrencies: React.FC<ICryptocurrencies> = ({simplified}) => {
 
     return (
         <>
-            {!simplified && <div className="search-crypto">
-                <Input
-                    placeholder="Search Cryptocurrency"
-                    onChange={(e: any) => setSearch(e.target.value)}
-                    value={search}
-                />
-            </div>}
+            {!simplified && <Row style={{marginBottom: 24, display: 'flex', justifyContent: 'center'}}>
+                <Col span={24} xs={24} sm={12}>
+                    <Input
+                        style={{width: '100%'}}
+                        placeholder="Search Cryptocurrency"
+                        onChange={(e: any) => setSearch(e.target.value)}
+                        value={search}
+                    />
+                </Col>
+            </Row>}
             <Row gutter={[32, 32]} className="crypto-card-container">
                 {cryptos?.map((coin: any) => (
                     <Col key={coin.name} xs={24} sm={12} lg={6} className="crypto-card">

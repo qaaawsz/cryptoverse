@@ -6,7 +6,7 @@ import {Link} from 'react-router-dom'
 import {Cryptocurrencies} from './index'
 import News from './News'
 
-const Homepage = () => {
+const Homepage: React.FC<{ screenSize: number | null }> = ({screenSize}) => {
     const {data, isFetching} = useGetCryptosInfoQuery()
     const globalStats = data?.data?.stats
 
@@ -35,25 +35,31 @@ const Homepage = () => {
                 </Col>
             </Row>
             <div className="home-heading-container">
-                <Typography.Title level={2} className="home-title">
+                <Typography.Title level={3} className="home-title">
                     Top 10 cryptocurrencies in the world
                 </Typography.Title>
-                <Typography.Title level={5} className="show-more">
-                    <Link to="/cryptocurrencies">
-                        Show more
-                    </Link>
-                </Typography.Title>
+                {
+                    screenSize && screenSize > 768 &&
+                    <Typography.Title level={5} className="show-more">
+                        <Link to="/cryptocurrencies">
+                            Show more
+                        </Link>
+                    </Typography.Title>
+                }
             </div>
             <Cryptocurrencies simplified={true}/>
             <div className="home-heading-container">
-                <Typography.Title level={2} className="home-title">
+                <Typography.Title level={3} className="home-title">
                     Latest crypto news
                 </Typography.Title>
-                <Typography.Title level={5} className="show-more">
-                    <Link to="/news">
-                        Show more
-                    </Link>
-                </Typography.Title>
+                {
+                    screenSize && screenSize > 768 &&
+                    <Typography.Title level={5} className="show-more">
+                        <Link to="/news">
+                            Show more
+                        </Link>
+                    </Typography.Title>
+                }
             </div>
             <News simplified={true}/>
         </main>

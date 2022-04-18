@@ -2,11 +2,10 @@ import React, {useEffect, useState} from 'react'
 import {Routes, Route, Link} from 'react-router-dom'
 import {Layout, Typography, Space} from 'antd'
 import './app.css'
-import {Homepage, Navbar, Cryptocurrencies, News, Exchanges} from './components/index'
+import {Homepage, Navbar, Cryptocurrencies, News} from './components/index'
 import CryptoDetails from './components/CryptoDetails'
 
 function App() {
-
     const [activeMenu, setActiveMenu] = useState<boolean>(true)
     const [screenSize, setScreenSize] = useState<number | null>(null)
     useEffect(() => {
@@ -34,7 +33,6 @@ function App() {
                         <Routes>
                             <Route path="/" element={<Homepage screenSize={screenSize}/>}/>
                             <Route path="/cryptocurrencies" element={<Cryptocurrencies simplified={false}/>}/>
-                            <Route path="/exchanges" element={<Exchanges/>}/>
                             <Route path="/crypto/:coinid" element={<CryptoDetails/>}/>
                             <Route path="/news" element={<News simplified={false}/>}/>
                         </Routes>
@@ -47,7 +45,6 @@ function App() {
                     </Typography.Title>
                     <Space>
                         <Link to="/">Home</Link>
-                        <Link to="/exchanges">Exchanges</Link>
                         <Link to="/news">News</Link>
                     </Space>
                 </div>

@@ -5,7 +5,7 @@ const URL = 'https://crypto-news-live3.p.rapidapi.com'
 const HEADERS = {
     'X-BingApis-SDK': 'true',
     'X-RapidAPI-Host': 'bing-news-search1.p.rapidapi.com',
-    'X-RapidAPI-Key': '4428404a58mshfd57b33dda06cbcp11b0a5jsn2b8ab8aee02b',
+    'X-RapidAPI-Key': process.env.REACT_APP_NEWS_KEY,
 }
 
 const createRequest = (url: string) => ({
